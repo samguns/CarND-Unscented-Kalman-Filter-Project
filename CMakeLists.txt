@@ -7,6 +7,7 @@ add_definitions(-std=c++11)
 set(CXX_FLAGS "-Wall")
 set(CMAKE_CXX_FLAGS "${CXX_FLAGS}")
 
+#set(no_sim_sources src/ukf.cpp src/main_no_sim.cpp src/tools.cpp)
 set(sources src/ukf.cpp src/main.cpp src/tools.cpp)
 
 
@@ -22,5 +23,7 @@ endif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 
 
 add_executable(UnscentedKF ${sources})
+#add_executable(no_sim ${no_sim_sources})
 
 target_link_libraries(UnscentedKF z ssl uv uWS)
+#file(COPY data DESTINATION ./)
